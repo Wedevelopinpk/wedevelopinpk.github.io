@@ -6,6 +6,9 @@
   <title>WeDevelopInPK - Android Apps</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
@@ -17,19 +20,25 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
-      padding: 0 20px;
+      padding: 20px;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
     h1 {
-      font-size: 3.2em;
+      font-size: 2.8em;
       margin-bottom: 10px;
       background: linear-gradient(to right, #00fff0, #00ff88, #ffaa00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      font-weight: 600;
     }
     p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       max-width: 600px;
       line-height: 1.6;
       color: #ddd;
@@ -44,30 +53,34 @@
       border: none;
       border-radius: 30px;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s;
+      display: inline-block;
     }
     .btn:hover {
       background-color: #00b396;
+      transform: scale(1.05);
     }
     .section {
       padding: 60px 20px;
       text-align: center;
     }
     .section-title {
-      font-size: 2.4em;
+      font-size: 2em;
       margin-bottom: 20px;
       color: #00ffcc;
+      font-weight: 600;
     }
     .app-card {
       margin-bottom: 40px;
     }
     .app-title {
-      font-size: 1.8em;
+      font-size: 1.6em;
       color: #ffa500;
       margin-bottom: 10px;
+      font-weight: 600;
     }
     .app-desc {
-      font-size: 1.1em;
+      font-size: 1em;
       max-width: 700px;
       margin: 0 auto;
       color: #ccc;
@@ -80,12 +93,60 @@
       color: #aaa;
       font-size: 1em;
     }
+    .contact a {
+      text-decoration: none;
+      color: #00c9a7;
+    }
+    .contact a:hover {
+      color: #00ffaa;
+    }
     footer {
       background: #000;
       color: #666;
       padding: 20px;
       text-align: center;
       font-size: 0.9em;
+    }
+
+    /* Floating Button */
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00c9a7;
+      color: black;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 0.95em;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .floating-btn:hover {
+      background-color: #00b396;
+      transform: scale(1.05);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2em;
+      }
+      .btn, .floating-btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+      }
+      .section-title {
+        font-size: 1.6em;
+      }
+      .app-title {
+        font-size: 1.3em;
+      }
+      .app-desc, .contact p {
+        font-size: 0.95em;
+      }
     }
   </style>
 </head>
@@ -123,12 +184,15 @@
   <div class="section contact" id="contact">
     <div class="section-title">📧 Contact Us</div>
     <p>If you have feedback, suggestions, or questions, feel free to reach out:</p>
-    <p><strong>Email:</strong> <a href="mailto:wedevelopinpk@gmail.com" style="color:#00c9a7;">wedevelopinpk@gmail.com</a></p>
+    <p><strong>Email:</strong> <a href="mailto:wedevelopinpk@gmail.com">wedevelopinpk@gmail.com</a></p>
   </div>
 
   <footer>
     © 2025 WeDevelopInPK · All rights reserved
   </footer>
+
+  <!-- Floating Button -->
+  <a class="floating-btn" href="#contact">📨 Contact</a>
 
 </body>
 </html>
