@@ -1,260 +1,665 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta name="google-site-verification" content="fMP4bkF2racHLJ1aLyh11pYu2F9D5Oi2Q_W5sU9SDF0" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WeDevelopInPK - Android Apps</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 20px;
-      animation: fadeIn 1.5s ease-in;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-      background: linear-gradient(to right, #00fff0, #00ff88, #ffaa00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 600;
-    }
-    p {
-      font-size: 1.1em;
-      max-width: 600px;
-      line-height: 1.6;
-      color: #ddd;
-    }
-    .btn {
-      margin-top: 30px;
-      padding: 12px 28px;
-      background-color: #00c9a7;
-      color: #000;
-      font-weight: bold;
-      font-size: 1em;
-      border: none;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: background 0.3s ease, transform 0.2s;
-      display: inline-block;
-    }
-    .btn:hover {
-      background-color: #00b396;
-      transform: scale(1.05);
-    }
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .section-title {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #00ffcc;
-      font-weight: 600;
-    }
-    .app-card {
-      margin-bottom: 40px;
-    }
-    .app-title {
-      font-size: 1.6em;
-      color: #ffa500;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-    .app-desc {
-      font-size: 1em;
-      max-width: 800px;
-      margin: 0 auto;
-      color: #ccc;
-      text-align: left;
-      padding: 10px;
-      line-height: 1.7;
-    }
-    .contact {
-      background-color: #111;
-      padding: 40px 20px;
-    }
-    .contact p {
-      color: #aaa;
-      font-size: 1em;
-    }
-    .contact a {
-      text-decoration: none;
-      color: #00c9a7;
-    }
-    .contact a:hover {
-      color: #00ffaa;
-    }
-    footer {
-      background: #000;
-      color: #666;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-    }
-    footer a {
-        color: #00c9a7;
-        text-decoration: none;
-        margin: 0 10px;
-    }
-    footer a:hover {
-        color: #00ffaa;
-    }
 
-    /* Floating Button */
-    .floating-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #00c9a7;
-      color: black;
-      padding: 14px 18px;
-      border-radius: 50px;
-      font-weight: bold;
-      font-size: 0.95em;
-      text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .floating-btn:hover {
-      background-color: #00b396;
-      transform: scale(1.05);
-    }
+  <meta name="google-site-verification" content="fMP4bkF2racHLJ1aLyh11pYu2F9D5Oi2Q_W5sU9SDF0" />
 
-    /* Responsive Design */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2em;
-      }
-      .btn, .floating-btn {
-        font-size: 0.9em;
-        padding: 10px 20px;
-      }
-      .section-title {
-        font-size: 1.6em;
-      }
-      .app-title {
-        font-size: 1.3em;
-      }
-      .app-desc, .contact p {
-        font-size: 0.95em;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>WeDevelopInPK - Android Apps</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+
+      margin: 0;
+
+      font-family: 'Montserrat', sans-serif;
+
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+
+      color: white;
+
+    }
+
+    .hero {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 100vh;
+
+      text-align: center;
+
+      padding: 20px;
+
+      animation: fadeIn 1.5s ease-in;
+
+    }
+
+    @keyframes fadeIn {
+
+      0% { opacity: 0; transform: translateY(20px); }
+
+      100% { opacity: 1; transform: translateY(0); }
+
+    }
+
+    h1 {
+
+      font-size: 2.8em;
+
+      margin-bottom: 10px;
+
+      background: linear-gradient(to right, #00fff0, #00ff88, #ffaa00);
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+
+      font-weight: 600;
+
+    }
+
+    p {
+
+      font-size: 1.1em;
+
+      max-width: 600px;
+
+      line-height: 1.6;
+
+      color: #ddd;
+
+    }
+
+    .btn {
+
+      margin-top: 30px;
+
+      padding: 12px 28px;
+
+      background-color: #00c9a7;
+
+      color: #000;
+
+      font-weight: bold;
+
+      font-size: 1em;
+
+      border: none;
+
+      border-radius: 30px;
+
+      text-decoration: none;
+
+      transition: background 0.3s ease, transform 0.2s;
+
+      display: inline-block;
+
+    }
+
+    .btn:hover {
+
+      background-color: #00b396;
+
+      transform: scale(1.05);
+
+    }
+
+    .section {
+
+      padding: 60px 20px;
+
+      text-align: center;
+
+    }
+
+    .section-title {
+
+      font-size: 2em;
+
+      margin-bottom: 20px;
+
+      color: #00ffcc;
+
+      font-weight: 600;
+
+    }
+
+    .app-card {
+
+      margin-bottom: 40px;
+
+    }
+
+    .app-title {
+
+      font-size: 1.6em;
+
+      color: #ffa500;
+
+      margin-bottom: 10px;
+
+      font-weight: 600;
+
+    }
+
+    .app-desc {
+
+      font-size: 1em;
+
+      max-width: 800px;
+
+      margin: 0 auto;
+
+      color: #ccc;
+
+      text-align: left;
+
+      padding: 10px;
+
+      line-height: 1.7;
+
+    }
+
+    .contact {
+
+      background-color: #111;
+
+      padding: 40px 20px;
+
+    }
+
+    .contact p {
+
+      color: #aaa;
+
+      font-size: 1em;
+
+    }
+
+    .contact a {
+
+      text-decoration: none;
+
+      color: #00c9a7;
+
+    }
+
+    .contact a:hover {
+
+      color: #00ffaa;
+
+    }
+
+    footer {
+
+      background: #000;
+
+      color: #666;
+
+      padding: 20px;
+
+      text-align: center;
+
+      font-size: 0.9em;
+
+    }
+
+    footer a {
+
+        color: #00c9a7;
+
+        text-decoration: none;
+
+        margin: 0 10px;
+
+    }
+
+    footer a:hover {
+
+        color: #00ffaa;
+
+    }
+
+
+
+    /* Floating Button */
+
+    .floating-btn {
+
+      position: fixed;
+
+      bottom: 20px;
+
+      right: 20px;
+
+      background-color: #00c9a7;
+
+      color: black;
+
+      padding: 14px 18px;
+
+      border-radius: 50px;
+
+      font-weight: bold;
+
+      font-size: 0.95em;
+
+      text-decoration: none;
+
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+      z-index: 999;
+
+      transition: background 0.3s, transform 0.2s;
+
+    }
+
+    .floating-btn:hover {
+
+      background-color: #00b396;
+
+      transform: scale(1.05);
+
+    }
+
+
+
+    /* Responsive Design */
+
+    @media (max-width: 480px) {
+
+      h1 {
+
+        font-size: 2em;
+
+      }
+
+      .btn, .floating-btn {
+
+        font-size: 0.9em;
+
+        padding: 10px 20px;
+
+      }
+
+      .section-title {
+
+        font-size: 1.6em;
+
+      }
+
+      .app-title {
+
+        font-size: 1.3em;
+
+      }
+
+      .app-desc, .contact p {
+
+        font-size: 0.95em;
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
 <body>
 
-  <div class="hero">
-    <h1>WeDevelopInPK</h1>
-    <p>We build smart, secure, and simple Android applications that make your digital life better.</p>
-    <a class="btn" href="#apps">Explore Our Apps</a>
-  </div>
 
-  <div class="section" id="apps">
-    <div class="section-title">📱 Our Apps</div>
 
-    <div class="app-card">
-        <div class="app-title">⚕️ Medical DICOM Viewer: Your Powerful Medical Imaging Tool</div>
-        <div class="app-desc">
-            Whether you are a medical professional, researcher, or student, <strong>Medical DICOM Viewer</strong> provides a fast, intuitive, and powerful platform to view and analyze DICOM (.dcm) files on your Android device.
-            <br><br>
-            <strong>📂 FLEXIBLE FILE & FOLDER ACCESS 📂</strong><br>
-            - <strong>Single File Viewing</strong>: Quickly open individual DICOM files from your device.<br>
-            - <strong>Full Folder Support</strong>: Open an entire folder of DICOM studies and seamlessly navigate through them.<br>
-            - <strong>ZIP Archive Reading</strong>: Directly open and view DICOM files stored within .zip archives.<br>
-            - <strong>Google Drive™ Integration</strong>: Securely sign in to browse your own Google Drive, open shared folders with a link, and download files for offline viewing.
+  <div class="hero">
 
-            <br><br><strong>🔬 ADVANCED IMAGE ANALYSIS TOOLS 🔬</strong><br>
-            - <strong>Multi-Frame Playback</strong>: Animate and play through multi-frame sequences with intuitive playback controls.<br>
-            - <strong>Pan & Zoom</strong>: Effortlessly pan and zoom to examine fine details with smooth gesture controls.<br>
-            - <strong>Windowing Control</strong>: Adjust window center and width (WC/WW) to optimize image contrast and brightness.<br>
-            - <strong>Invert & Edge Enhancement</strong>: Instantly invert colors or apply an edge enhancement filter for better analysis.<br>
+    <h1>WeDevelopInPK</h1>
 
-            <br><strong>✨ BUILT FOR A SEAMLESS EXPERIENCE ✨</strong><br>
-            - <strong>Modern & Clean UI</strong>: A user-friendly interface that gets out of your way.<br>
-            - <strong>Persistent Locations</strong>: The app remembers your last-opened local and Google Drive folders for quick access.<br>
-            - <strong>Unlock Pro Features</strong>: A simple, one-time purchase unlocks all advanced features for life.<br><br>
+    <p>We build smart, secure, and simple Android applications that make your digital life better.</p>
 
-            <strong>Empower your medical imaging workflow. Download Medical DICOM Viewer today!</strong>
-            <br><br>
-            <a class="btn" href="https://play.google.com/store/apps/details?id=com.wedevelopinpk.besticomviewer" target="_blank">
-              View on Google Play
-            </a>
-        </div>
-    </div>
+    <a class="btn" href="#apps">Explore Our Apps</a>
 
-    <div class="app-card">
-      <div class="app-title">🔐 DataVault: Your Ultimate Military-Grade Secure Vault</div>
-      <div class="app-desc">
-        Tired of worrying about who might see your personal photos, private videos, and confidential documents?  
-        <br><br>
-        <strong>DataVault</strong> isn't just another file hider — it’s a high-security digital safe built to protect your data with <strong>impenetrable, military-grade security protocols</strong>.
-        
-        <br><br><strong>🛡️ IRONCLAD SECURITY & ENCRYPTION PROTOCOLS 🛡️</strong><br>
-        🔐 <strong>Military-Grade AES-256 Encryption</strong>: Every file you add is locked down with AES-256 encryption — trusted by governments worldwide.<br>
-        🧠 <strong>PBKDF2 Key Derivation</strong>: Your encryption key is securely derived from your password using PBKDF2 with unique salt per file.<br>
-        🔑 <strong>Android Keystore Protection</strong>: Your master password is separately encrypted using hardware-backed storage.<br>
-        🕵️‍♂️ <strong>Stealth Folder Technology</strong>: Vault folders are disguised with random names — invisible to curious eyes.<br>
-        📴 <strong>100% Offline</strong>: Your files are stored only on your device. You hold the only key.<br>
-        🔓 <strong>Biometric Login</strong>: Use fingerprint or face unlock for quick, secure access.
+  </div>
 
-        <br><br><strong>🗂️ POWERFUL & INTUITIVE FILE MANAGEMENT 🗂️</strong><br>
-        🖼️ Lock photos, videos, audio, PDFs, text, and more.<br>
-        ▶️ Secure in-app viewing without exporting.<br>
-        📦 Batch import/export support for fast encryption.<br>
-        📂 Create, delete, and move files/folders within your vault.<br>
-        🔄 Sort files by name, date, size, or type.<br>
 
-        <br><strong>✨ A SEAMLESS & USER-FRIENDLY EXPERIENCE ✨</strong><br>
-        🎨 Clean, modern interface with intuitive controls.<br>
-        ⏳ Animated encryption/decryption progress.<br>
-        🗑️ Auto-delete original files after encryption.<br>
-        🔁 Reinstall protection with easy recovery.<br>
-        🔐 Use any password (e.g., "12345") — stronger is better!<br><br>
 
-        <strong>Stop leaving your privacy to chance. Download DataVault today and build your own impenetrable digital fortress!</strong>
-        <br><br>
-        <a class="btn" href="https://play.google.com/store/apps/details?id=com.wedevelopinpk.datavault" target="_blank">
-          View on Google Play
-        </a>
-      </div>
-    </div>
-  </div>
+  <div class="section" id="apps">
 
-  <div class="section contact" id="contact">
-    <div class="section-title">📧 Contact Us</div>
-    <p>If you have feedback, suggestions, or questions, feel free to reach out:</p>
-    <p><strong>Email:</strong> <a href="mailto:wedevelopinpk@gmail.com">wedevelopinpk@gmail.com</a></p>
-  </div>
+    <div class="section-title">📱 Our Apps</div>
 
-  <footer>
-    © 2025 WeDevelopInPK · All rights reserved
-    <br>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="#terms">Terms of Service</a>
-  </footer>
 
-  <a class="floating-btn" href="#contact">📨 Contact</a>
+
+    <!-- Medical DICOM Viewer App Card -->
+
+    <div class="app-card">
+
+        <div class="app-title">⚕️ Medical DICOM Viewer: Your Powerful Medical Imaging Tool</div>
+
+        <div class="app-desc">
+
+            Whether you are a medical professional, researcher, or student, <strong>Medical DICOM Viewer</strong> provides a fast, intuitive, and powerful platform to view and analyze DICOM (.dcm) files on your Android device.
+
+            <br><br>
+
+            <strong>📂 FLEXIBLE FILE & FOLDER ACCESS 📂</strong><br>
+
+            - <strong>Single File Viewing</strong>: Quickly open individual DICOM files from your device.<br>
+
+            - <strong>Full Folder Support</strong>: Open an entire folder of DICOM studies and seamlessly navigate through them.<br>
+
+            - <strong>ZIP Archive Reading</strong>: Directly open and view DICOM files stored within .zip archives.<br>
+
+            - <strong>Google Drive™ Integration</strong>: Securely sign in to browse your own Google Drive, open shared folders with a link, and download files for offline viewing.
+
+
+
+            <br><br><strong>🔬 ADVANCED IMAGE ANALYSIS TOOLS 🔬</strong><br>
+
+            - <strong>Multi-Frame Playback</strong>: Animate and play through multi-frame sequences with intuitive playback controls.<br>
+
+            - <strong>Pan & Zoom</strong>: Effortlessly pan and zoom to examine fine details with smooth gesture controls.<br>
+
+            - <strong>Windowing Control</strong>: Adjust window center and width (WC/WW) to optimize image contrast and brightness.<br>
+
+            - <strong>Invert & Edge Enhancement</strong>: Instantly invert colors or apply an edge enhancement filter for better analysis.<br>
+
+
+
+            <br><strong>✨ BUILT FOR A SEAMLESS EXPERIENCE ✨</strong><br>
+
+            - <strong>Modern & Clean UI</strong>: A user-friendly interface that gets out of your way.<br>
+
+            - <strong>Persistent Locations</strong>: The app remembers your last-opened local and Google Drive folders for quick access.<br>
+
+            - <strong>Unlock Pro Features</strong>: A simple, one-time purchase unlocks all advanced features for life.<br><br>
+
+
+
+            <strong>Empower your medical imaging workflow. Download Medical DICOM Viewer today!</strong>
+
+            <br><br>
+
+            <a class="btn" href="https://play.google.com/store/apps/details?id=com.wedevelopinpk.besticomviewer" target="_blank">
+
+              View on Google Play
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="app-card">
+
+      <div class="app-title">🔐 DataVault: Your Ultimate Military-Grade Secure Vault</div>
+
+      <div class="app-desc">
+
+        Tired of worrying about who might see your personal photos, private videos, and confidential documents?  
+
+        <br><br>
+
+        <strong>DataVault</strong> isn't just another file hider — it’s a high-security digital safe built to protect your data with <strong>impenetrable, military-grade security protocols</strong>.
+
+        
+
+        <br><br><strong>🛡️ IRONCLAD SECURITY & ENCRYPTION PROTOCOLS 🛡️</strong><br>
+
+        🔐 <strong>Military-Grade AES-256 Encryption</strong>: Every file you add is locked down with AES-256 encryption — trusted by governments worldwide.<br>
+
+        🧠 <strong>PBKDF2 Key Derivation</strong>: Your encryption key is securely derived from your password using PBKDF2 with unique salt per file.<br>
+
+        🔑 <strong>Android Keystore Protection</strong>: Your master password is separately encrypted using hardware-backed storage.<br>
+
+        🕵️‍♂️ <strong>Stealth Folder Technology</strong>: Vault folders are disguised with random names — invisible to curious eyes.<br>
+
+        📴 <strong>100% Offline</strong>: Your files are stored only on your device. You hold the only key.<br>
+
+        🔓 <strong>Biometric Login</strong>: Use fingerprint or face unlock for quick, secure access.
+
+
+
+        <br><br><strong>🗂️ POWERFUL & INTUITIVE FILE MANAGEMENT 🗂️</strong><br>
+
+        🖼️ Lock photos, videos, audio, PDFs, text, and more.<br>
+
+        ▶️ Secure in-app viewing without exporting.<br>
+
+        📦 Batch import/export support for fast encryption.<br>
+
+        📂 Create, delete, and move files/folders within your vault.<br>
+
+        🔄 Sort files by name, date, size, or type.<br>
+
+
+
+        <br><strong>✨ A SEAMLESS & USER-FRIENDLY EXPERIENCE ✨</strong><br>
+
+        🎨 Clean, modern interface with intuitive controls.<br>
+
+        ⏳ Animated encryption/decryption progress.<br>
+
+        🗑️ Auto-delete original files after encryption.<br>
+
+        🔁 Reinstall protection with easy recovery.<br>
+
+        🔐 Use any password (e.g., "12345") — stronger is better!<br><br>
+
+
+
+        <strong>Stop leaving your privacy to chance. Download DataVault today and build your own impenetrable digital fortress!</strong>
+
+        <br><br>
+
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.wedevelopinpk.datavault" target="_blank">
+
+          View on Google Play
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="section contact" id="contact">
+
+    <div class="section-title">📧 Contact Us</div>
+
+    <p>If you have feedback, suggestions, or questions, feel free to reach out:</p>
+
+    <p><strong>Email:</strong> <a href="mailto:wedevelopinpk@gmail.com">wedevelopinpk@gmail.com</a></p>
+
+  </div>
+
+
+
+  <div class="section" id="privacy">
+
+    <div class="section-title">🔒 Privacy Policy</div>
+
+    <div class="app-desc">
+
+        <!-- Medical DICOM Viewer Privacy Policy -->
+
+        <h3 style="color: #ffa500; font-weight: 600;">Medical DICOM Viewer</h3>
+
+        <p><strong>Effective Date:</strong> September 8, 2025</p>
+
+        <p>This policy outlines the privacy practices for the Medical DICOM Viewer application. Your privacy is critically important to us.</p>
+
+        <p><strong>🚫 No Personal Data Collection:</strong> We do not collect, store, or transmit any personal information, usage data, or analytics. The app's functionality is designed to work without requiring personal data from you.</p>
+
+        <p><strong>📁 Local File Access:</strong> The app requires access to your device's storage to open DICOM files, folders, or ZIP archives that you explicitly select. These files are processed directly on your device and are never transmitted to our servers or any third party.</p>
+
+        <p><strong>☁️ Google Drive™ Integration:</strong>
+
+            <br>- <strong>Authentication:</strong> To access files from Google Drive, the app uses Google Sign-In for authentication. This process is handled securely by Google. We only receive basic account information (like your name and email) for display purposes within the app and do not store it.
+
+            <br>- <strong>Permissions:</strong> The app requests <strong>read-only</strong> permission (`DriveScopes.DRIVE_READONLY`) for your Google Drive. This means the app can only view and download files you choose; it <strong>cannot</strong> create, modify, or delete any of your files.
+
+            <br>- <strong>Temporary Cache:</strong> When you open files from Google Drive, they are downloaded to a secure, temporary cache folder within the app's private storage. This data is automatically deleted when you close the viewer screen. We do not have access to this data.
+
+        </p>
+
+        <p><strong>💳 Google Play Billing:</strong>
+
+            <br>- <strong>In-App Purchases:</strong> The app uses the Google Play Billing service to manage one-time purchases for pro features.
+
+            <br>- <strong>Payment Information:</strong> All transactions are processed securely by Google. We do not collect, see, or store any of your financial information, such as credit card numbers. We only receive a confirmation from Google that a purchase was successful.
+
+        </p>
+
+        <p><strong>📜 Policy Updates:</strong> We may occasionally update this policy to reflect app changes. Any modifications will be posted on this page.</p>
+
+        <p>If you have questions, contact us at:<br>
+
+          <strong>Email:</strong> <a href="mailto:wedevelopinpk@gmail.com">wedevelopinpk@gmail.com</a>
+
+        </p>
+
+        <hr style="border-color: #444; margin: 40px 0;">
+
+
+
+        <!-- DataVault Privacy Policy -->
+
+        <h3 style="color: #ffa500; font-weight: 600;">DataVault</h3>
+
+        <p><strong>DataVault</strong> is built to prioritize your privacy and give you full control over your personal data. This app is designed to operate fully offline, and no data is collected or tracked by us. However, if you choose to use the optional backup features, limited data transmission may occur as described below.</p>
+
+        <p><strong>🛡️ No Data Collection:</strong> We do not collect, store, or transmit any personal information, usage data, or analytics. We do not store your password, files, email, or any identifiers on our servers.</p>
+
+        <p><strong>☁️ Optional Backups:</strong> If you choose to use the optional backup feature, your encrypted data may be transmitted to a storage service of your choice (such as Google Drive or a local export). This process is entirely user-initiated. We do not have access to your files, encryption keys, or backup locations.</p>
+
+        <p><strong>🔑 Your Encryption, Your Control:</strong> All backed-up data remains encrypted with your master password. We cannot read, decrypt, or restore any of your content — only you can do that using your password.</p>
+
+        <p><strong>📴 Offline By Default:</strong> Unless you explicitly initiate a backup, DataVault functions entirely offline. No data leaves your device automatically.</p>
+
+        <p><strong>❌ No Password Recovery:</strong> For your security, we cannot recover lost or forgotten passwords. Please store your password safely.</p>
+
+        <p><strong>🔐 Biometric Login:</strong> If you use fingerprint or facial recognition, that data is managed securely by your device's operating system. We never store or access biometric data.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="section" id="terms">
+
+    <div class="section-title">📜 Terms of Service</div>
+
+    <div class="app-desc">
+
+        <h3 style="color: #ffa500; font-weight: 600;">Medical DICOM Viewer & DataVault</h3>
+
+        <p><strong>Effective Date:</strong> September 8, 2025</p>
+
+        <p>By downloading or using our applications ("Apps"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use our Apps.</p>
+
+        <p><strong>1. Use License</strong></p>
+
+        <p>Permission is granted to download and use the Apps for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license, you may not:</p>
+
+        <ul>
+
+            <li>modify or copy the materials;</li>
+
+            <li>attempt to decompile or reverse engineer any software contained in the Apps;</li>
+
+            <li>remove any copyright or other proprietary notations from the materials; or</li>
+
+            <li>transfer the materials to another person or "mirror" the materials on any other server.</li>
+
+        </ul>
+
+        <p>This license shall automatically terminate if you violate any of these restrictions and may be terminated by WeDevelopInPK at any time.</p>
+
+        
+
+        <p><strong>2. Disclaimer</strong></p>
+
+        <p>The materials within the Apps are provided on an 'as is' basis. WeDevelopInPK makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+
+        <p>Specifically for **Medical DICOM Viewer**, the App is intended for informational and educational purposes only and is **not** intended for primary diagnostic use. Clinical decisions should not be based solely on the images displayed within this application.</p>
+
+        
+
+        <p><strong>3. Limitations</strong></p>
+
+        <p>In no event shall WeDevelopInPK or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on our Apps, even if WeDevelopInPK has been notified orally or in writing of the possibility of such damage.</p>
+
+        
+
+        <p><strong>4. Governing Law</strong></p>
+
+        <p>These terms and conditions are governed by and construed in accordance with the laws of Pakistan and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
+
+        
+
+        <p><strong>5. Changes to These Terms</strong></p>
+
+        <p>We reserve the right to modify these terms at any time. We will post the revised terms on this page. By continuing to use our Apps after any changes, you agree to be bound by the revised terms.</p>
+
+        
+
+        <p>If you have questions, contact us at:<br>
+
+          <strong>Email:</strong> <a href="mailto:wedevelopinpk@gmail.com">wedevelopinpk@gmail.com</a>
+
+        </p>
+
+    </div>
+
+  </div>
+
+
+
+  <footer>
+
+    © 2025 WeDevelopInPK · All rights reserved
+
+    <br>
+
+    <a href="#privacy">Privacy Policy</a>
+
+    <a href="#terms">Terms of Service</a>
+
+  </footer>
+
+
+
+  <!-- Floating Contact Button -->
+
+  <a class="floating-btn" href="#contact">📨 Contact</a>
+
+
 
 </body>
+
 </html>
