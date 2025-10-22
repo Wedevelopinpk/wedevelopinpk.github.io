@@ -9,37 +9,32 @@
   <style>
     html {
       scroll-behavior: smooth;
-      /* Optional: Enable scroll snapping */
-      /* scroll-snap-type: y mandatory; */
     }
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
-      overflow-x: hidden; /* Prevent horizontal scroll */
+      overflow-x: hidden;
     }
-    .page-section { /* Renamed .hero and .section to this for consistency */
+    .page-section {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh; /* Full viewport height */
+      min-height: 100vh;
       text-align: center;
-      padding: 40px 20px; /* Consistent padding */
-      box-sizing: border-box; /* Include padding in height */
-      position: relative; /* Needed for z-index stacking */
-      overflow: visible; /* Allow hearts to be seen outside temporarily */
-      z-index: 1; /* Ensure page content is above the fixed background hearts */
-      /* Optional: Scroll snapping */
-      /* scroll-snap-align: start; */
+      padding: 40px 20px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: visible;
+      z-index: 1;
     }
-    /* Make contact section slightly shorter if desired, but still a page-section */
     #contact {
         min-height: 50vh;
     }
 
-    .hero { /* Keep hero specific styles if needed */
+    .hero {
         animation: fadeIn 1.5s ease-in;
     }
     @keyframes fadeIn {
@@ -53,17 +48,32 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 600;
-      z-index: 1; /* Ensure text is above hearts */
+      z-index: 1;
     }
-    .hero p { /* Target hero paragraph specifically */
+    .hero p {
       font-size: 1.1em;
       max-width: 600px;
       line-height: 1.6;
       color: #ddd;
       margin: 10px auto;
-      z-index: 1; /* Ensure text is above hearts */
+      z-index: 1;
     }
-    /* Removed .nav-links styles */
+    .built-with-love {
+        margin-top: 15px;
+        font-size: 0.95em;
+        color: #aaa;
+        z-index: 1;
+    }
+    .built-with-love span {
+        color: #ff4d6d;
+        display: inline-block;
+        animation: subtleBeat 1.8s ease-in-out infinite alternate;
+    }
+    @keyframes subtleBeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
 
     .btn {
       margin-top: 30px;
@@ -78,38 +88,37 @@
       transition: background 0.3s ease, transform 0.2s;
       display: inline-block;
       cursor: pointer;
-      z-index: 1; /* Ensure button is above hearts */
+      z-index: 1;
     }
     .btn:hover {
       background-color: #00b396;
       transform: scale(1.05);
     }
-     /* Smaller button variant */
     .btn-small {
         padding: 8px 18px;
         font-size: 0.9em;
         margin-top: 15px;
     }
     .section-title {
-      font-size: 2.2em; /* Slightly larger title for app sections */
-      margin-bottom: 30px; /* More space below title */
+      font-size: 2.2em;
+      margin-bottom: 30px;
       color: #00ffcc;
       font-weight: 600;
     }
-    .app-card-container { /* Container for app cards in the list section */
+    .app-card-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 30px;
-        max-width: 1000px; /* Limit width of the container */
+        max-width: 1000px;
         width: 100%;
     }
-    .app-card-list-item { /* Styling for individual app cards in the list */
-        background-color: rgba(44, 83, 100, 0.7); /* Semi-transparent card background */
+    .app-card-list-item {
+        background-color: rgba(44, 83, 100, 0.7);
         border-radius: 15px;
         padding: 25px;
-        max-width: 400px; /* Max width for each card */
-        flex: 1 1 300px; /* Allow cards to grow/shrink but have a base width */
+        max-width: 400px;
+        flex: 1 1 300px;
         text-align: center;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -118,23 +127,23 @@
         transform: translateY(-5px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
-    .app-card-list-item h3 { /* Title within the list card */
+    .app-card-list-item h3 {
         color: #ffa500;
         font-size: 1.5em;
         margin-top: 0;
         margin-bottom: 15px;
         font-weight: 600;
     }
-    .app-card-list-item p { /* Description within the list card */
+    .app-card-list-item p {
         color: #ccc;
         font-size: 0.95em;
         line-height: 1.6;
         margin-bottom: 20px;
     }
 
-    .app-detail-card { /* Card within the full app section */
-       width: 100%; /* Ensure card takes full width for centering */
-       max-width: 900px; /* Limit max width for readability */
+    .app-detail-card {
+       width: 100%;
+       max-width: 900px;
        margin-bottom: 0;
     }
     .app-desc {
@@ -145,20 +154,18 @@
       padding: 10px;
       line-height: 1.7;
     }
-    /* Style for feature lists */
     .app-desc ul {
-        list-style: none; /* Remove default bullets */
+        list-style: none;
         padding-left: 0;
     }
     .app-desc li {
-        margin-bottom: 8px; /* Space between list items */
+        margin-bottom: 8px;
         position: relative;
-        padding-left: 25px; /* Space for custom icon */
+        padding-left: 25px;
     }
-    /* Custom bullet/icon */
     .app-desc li::before {
-        content: '✓'; /* Checkmark icon */
-        color: #00c9a7; /* Icon color */
+        content: '✓';
+        color: #00c9a7;
         font-weight: bold;
         position: absolute;
         left: 0;
@@ -166,27 +173,24 @@
     }
     .feature-section-title {
         font-weight: 600;
-        color: #00ffcc; /* Match section title color */
+        color: #00ffcc;
         margin-top: 20px;
         margin-bottom: 10px;
         font-size: 1.1em;
-        text-align: center; /* Center subsection titles */
+        text-align: center;
     }
     .contact {
       background-color: #111;
       padding: 40px 20px;
-       /* Optional: Scroll snapping */
-      /* scroll-snap-align: start; */
-      /* min-height: auto; /* Contact section doesn't need full height */
-      text-align: center; /* Center contact content */
+      text-align: center;
     }
     .contact p {
       color: #aaa;
       font-size: 1em;
-      max-width: 600px; /* Consistent width */
-      margin: 10px auto; /* Center paragraph */
+      max-width: 600px;
+      margin: 10px auto;
     }
-    .contact .section-title { /* Adjust contact title margin */
+    .contact .section-title {
         margin-bottom: 20px;
     }
     .contact a {
@@ -202,8 +206,8 @@
       padding: 20px;
       text-align: center;
       font-size: 0.9em;
-      position: relative; /* Needed for z-index stacking */
-      z-index: 1; /* Ensure footer content is above hearts */
+      position: relative;
+      z-index: 1;
     }
      footer a {
          color: #00c9a7;
@@ -214,7 +218,6 @@
          color: #00ffaa;
      }
 
-    /* Floating Button */
     .floating-btn {
       position: fixed;
       bottom: 20px;
@@ -227,7 +230,7 @@
       font-size: 0.95em;
       text-decoration: none;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      z-index: 999; /* Highest z-index */
+      z-index: 999;
       transition: background 0.3s, transform 0.2s;
     }
     .floating-btn:hover {
@@ -235,51 +238,51 @@
       transform: scale(1.05);
     }
 
-    /* --- Heart Animation --- */
     #hearts-container {
-        position: fixed; /* Fixed position to stay on screen */
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        pointer-events: none; /* Allow clicks to go through */
-        overflow: hidden; /* Hide hearts going off edges */
-        z-index: 0; /* Behind page content */
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
     }
     .heart {
         position: absolute;
-        top: 110vh; /* Start below the viewport */
-        left: var(--start-left); /* Use CSS variable for random horizontal start */
-        font-size: 1.5rem; /* Adjust size */
-        color: #ff4d6d; /* Heart color */
-        /* Apply flyUp animation by default */
-        animation: flyUp 10s linear infinite var(--delay);
+        top: 110vh;
+        left: var(--start-left);
+        font-size: 2.0rem; /* Increased size */
+        color: #ff4d6d;
+        animation-name: flyUp;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-delay: var(--delay);
+        animation-duration: var(--duration);
         opacity: 0;
-        /* z-index: 0; Moved z-index to container */
-        will-change: transform, opacity; /* Optimize animation */
+        will-change: transform, opacity;
     }
 
-    /* Add heartbeat animation class */
     .heart.beat {
-        /* Apply heartbeat animation IN ADDITION to flyUp */
-        animation: flyUp 10s linear infinite var(--delay),
-                   heartbeat 1.5s ease-in-out infinite alternate calc(var(--delay) + 2s); /* Start beat after a delay */
+        animation-name: flyUp, heartbeat;
+        animation-timing-function: linear, ease-in-out;
+        animation-iteration-count: infinite, infinite;
+        animation-direction: normal, alternate;
+        animation-duration: var(--duration), 1.5s;
+        animation-delay: var(--delay), var(--beat-delay);
     }
-
 
     @keyframes flyUp {
         0% {
-            transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+            transform: translateY(0) translateX(0) rotate(0deg);
             opacity: 0.8;
         }
         50% {
-            /* Adjusted horizontal drift */
-            transform: translateY(-70vh) translateX(var(--drift)) rotate(360deg) scale(1);
+            transform: translateY(-70vh) translateX(var(--drift)) rotate(360deg);
             opacity: 0.6;
         }
         100% {
-            /* Adjusted horizontal drift and final position */
-            transform: translateY(-110vh) translateX(calc(var(--drift) * 1.5)) rotate(720deg) scale(1);
+            transform: translateY(-110vh) translateX(calc(var(--drift) * 1.5)) rotate(720deg);
             opacity: 0;
         }
     }
@@ -289,29 +292,25 @@
             transform: scale(1);
         }
         50% {
-            transform: scale(1.6); /* Grow bigger */
+            transform: scale(1.6);
         }
         100% {
-            transform: scale(1); /* Shrink back */
+            transform: scale(1);
         }
     }
-    /* --- End Heart Animation --- */
 
-
-    /* Responsive Design */
-    @media (max-width: 768px) { /* Adjust breakpoint if needed */
+    @media (max-width: 768px) {
         .app-card-container {
-            flex-direction: column; /* Stack cards vertically */
-            align-items: center; /* Center stacked cards */
+            flex-direction: column;
+            align-items: center;
         }
         .app-card-list-item {
-            max-width: 90%; /* Allow cards to take more width */
-            flex-basis: auto; /* Reset flex basis */
+            max-width: 90%;
+            flex-basis: auto;
         }
         .heart {
-            font-size: 1.2rem; /* Smaller hearts on mobile */
+            font-size: 1.7rem; /* Increased size for mobile */
         }
-        /* Make heartbeat scale smaller on mobile */
         @keyframes heartbeat {
             0% { transform: scale(1); }
             50% { transform: scale(1.4); }
@@ -327,26 +326,24 @@
         padding: 10px 20px;
       }
       .section-title {
-        font-size: 1.8em; /* Adjusted section title size */
+        font-size: 1.8em;
       }
-      .app-desc, .contact p {
+      .app-desc, .contact p, .built-with-love {
         font-size: 0.95em;
       }
       .app-desc li::before {
-        left: 5px; /* Adjust icon position for smaller screens */
+        left: 5px;
       }
       .app-desc li {
-        padding-left: 30px; /* Adjust padding for smaller screens */
+        padding-left: 30px;
       }
-      /* Removed .nav-links media query */
       .app-card-list-item h3 {
         font-size: 1.3em;
       }
       .heart {
-          font-size: 1rem; /* Even smaller hearts */
+          font-size: 1.5rem; /* Increased size for small mobile */
       }
-       /* Make heartbeat scale even smaller */
-      @keyframes heartbeat {
+       @keyframes heartbeat {
             0% { transform: scale(1); }
             50% { transform: scale(1.3); }
             100% { transform: scale(1); }
@@ -356,30 +353,24 @@
 </head>
 <body>
 
-  <!-- Heart Animation Container (Moved outside sections) -->
   <div id="hearts-container"></div>
 
-  <!-- Hero Section -->
   <section class="page-section hero" id="home">
     <h1>WeDevelopInPK</h1>
     <p>We build smart, secure, and simple Android applications that make your digital life better.</p>
-    <!-- Navigation Links Removed -->
+    <p class="built-with-love">Built with <span>❤️</span></p>
     <a class="btn" href="#app-list">Explore Our Apps</a>
-    <!-- Heart animation DIV removed from here -->
   </section>
 
-  <!-- App List Section -->
   <section class="page-section" id="app-list">
     <div class="section-title">📱 Our Applications</div>
     <div class="app-card-container">
-        <!-- DICOM Viewer Card -->
         <div class="app-card-list-item">
             <h3>⚕️ Medical DICOM Viewer</h3>
             <p>A fast, intuitive, and powerful platform for medical professionals, researchers, and students to view and analyze DICOM (.dcm) files on Android.</p>
             <a class="btn btn-small" href="#dicom-viewer">Learn More</a>
             <a class="btn btn-small" href="https://play.google.com/store/apps/details?id=com.wedevelopinpk.besticomviewer" target="_blank">View on Play Store</a>
         </div>
-        <!-- DataVault Card -->
         <div class="app-card-list-item">
             <h3>🔐 DataVault: Secure Vault</h3>
             <p>Your private space to hide and protect personal photos, videos, and documents with industry-standard authenticated encryption.</p>
@@ -389,7 +380,6 @@
     </div>
   </section>
 
-  <!-- DICOM Viewer Detail Section -->
   <section class="page-section" id="dicom-viewer">
     <div class="app-detail-card">
         <div class="section-title">⚕️ Medical DICOM Viewer</div>
@@ -434,7 +424,6 @@
     </div>
   </section>
 
-  <!-- DataVault Detail Section -->
   <section class="page-section" id="datavault">
     <div class="app-detail-card">
       <div class="section-title">🔐 DataVault: Securely Hide Your Photos & Videos</div>
@@ -489,7 +478,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section class="page-section contact" id="contact">
     <div class="section-title">📧 Contact Us</div>
     <p>If you have feedback, suggestions, or questions, feel free to reach out:</p>
@@ -499,7 +487,6 @@
   <footer>
     © 2025 WeDevelopInPK · All rights reserved
     <br>
-    <!-- Make sure these files exist -->
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="terms-of-service.html">Terms of Service</a>
   </footer>
@@ -507,39 +494,31 @@
   <a class="floating-btn" href="#contact">📨 Contact</a>
 
   <script>
-    // JavaScript for Heart Animation
     document.addEventListener('DOMContentLoaded', () => {
       const container = document.getElementById('hearts-container');
-      const heartCount = 20; // Increase count slightly for better coverage
-      const beatChance = 0.2; // 20% chance for a heart to beat
+      const heartCount = 20;
+      const beatChance = 0.2;
 
       for (let i = 0; i < heartCount; i++) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
-        heart.innerHTML = '❤️'; // Heart emoji
+        heart.innerHTML = '❤️';
 
-        // Randomize starting position, delay, duration, and horizontal drift
-        const startLeft = Math.random() * 98 + '%'; // Start anywhere across the width (slight inset)
-        const delay = Math.random() * 12 + 's'; // Start at different times over 12s
-        const duration = (Math.random() * 5 + 8) + 's'; // Duration between 8s and 13s
-        const drift = (Math.random() - 0.5) * 50 + 'vw'; // Drift left or right up to 25vw
+        const startLeft = Math.random() * 98 + '%';
+        const delay = Math.random() * 12 + 's';
+        const duration = (Math.random() * 5 + 8) + 's';
+        const drift = (Math.random() - 0.5) * 50 + 'vw';
+        const beatDelay = (Math.random() * 3 + 1) + 's';
 
         heart.style.setProperty('--start-left', startLeft);
-        heart.style.setProperty('--delay', `-${delay}`); // Negative delay starts animation partway through
-        heart.style.setProperty('--duration', duration); // Set random duration
+        heart.style.setProperty('--delay', `-${delay}`);
+        heart.style.setProperty('--duration', duration);
         heart.style.setProperty('--drift', drift);
+        heart.style.setProperty('--beat-delay', `calc(var(--delay) + ${beatDelay})`);
 
-        // Apply flyUp animation directly in CSS now
-        // heart.style.animationName = 'flyUp';
-        heart.style.animationDuration = duration; // Apply random duration
-
-        // Randomly add the heartbeat animation
         if (Math.random() < beatChance) {
           heart.classList.add('beat');
-          // Adjust animation property to include both
-          heart.style.animation = `flyUp ${duration} linear infinite var(--delay), heartbeat 1.5s ease-in-out infinite alternate calc(var(--delay) + ${Math.random() * 3 + 1}s)`; // Start beat after random delay
         }
-
 
         container.appendChild(heart);
       }
