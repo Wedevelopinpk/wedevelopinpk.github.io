@@ -28,9 +28,17 @@
       text-align: center;
       padding: 40px 20px; /* Consistent padding */
       box-sizing: border-box; /* Include padding in height */
+      position: relative; /* Needed for z-index stacking */
+      overflow: visible; /* Allow hearts to be seen outside temporarily */
+      z-index: 1; /* Ensure page content is above the fixed background hearts */
       /* Optional: Scroll snapping */
       /* scroll-snap-align: start; */
     }
+    /* Make contact section slightly shorter if desired, but still a page-section */
+    #contact {
+        min-height: 50vh;
+    }
+
     .hero { /* Keep hero specific styles if needed */
         animation: fadeIn 1.5s ease-in;
     }
@@ -45,6 +53,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 600;
+      z-index: 1; /* Ensure text is above hearts */
     }
     .hero p { /* Target hero paragraph specifically */
       font-size: 1.1em;
@@ -52,20 +61,9 @@
       line-height: 1.6;
       color: #ddd;
       margin: 10px auto;
+      z-index: 1; /* Ensure text is above hearts */
     }
-    .nav-links { /* Container for app links in hero */
-        margin-top: 20px;
-    }
-    .nav-links a {
-        margin: 0 15px;
-        color: #00ffcc;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-    }
-    .nav-links a:hover {
-        color: #ffa500;
-    }
+    /* Removed .nav-links styles */
 
     .btn {
       margin-top: 30px;
@@ -80,6 +78,7 @@
       transition: background 0.3s ease, transform 0.2s;
       display: inline-block;
       cursor: pointer;
+      z-index: 1; /* Ensure button is above hearts */
     }
     .btn:hover {
       background-color: #00b396;
@@ -137,10 +136,6 @@
        width: 100%; /* Ensure card takes full width for centering */
        max-width: 900px; /* Limit max width for readability */
        margin-bottom: 0;
-        /* Optional: Add background/border if desired */
-       /* background-color: rgba(0,0,0,0.1); */
-       /* border-radius: 10px; */
-       /* padding: 20px; */
     }
     .app-desc {
       font-size: 1em;
@@ -182,7 +177,7 @@
       padding: 40px 20px;
        /* Optional: Scroll snapping */
       /* scroll-snap-align: start; */
-      min-height: auto; /* Contact section doesn't need full height */
+      /* min-height: auto; /* Contact section doesn't need full height */
       text-align: center; /* Center contact content */
     }
     .contact p {
@@ -207,6 +202,8 @@
       padding: 20px;
       text-align: center;
       font-size: 0.9em;
+      position: relative; /* Needed for z-index stacking */
+      z-index: 1; /* Ensure footer content is above hearts */
     }
      footer a {
          color: #00c9a7;
@@ -230,13 +227,76 @@
       font-size: 0.95em;
       text-decoration: none;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      z-index: 999;
+      z-index: 999; /* Highest z-index */
       transition: background 0.3s, transform 0.2s;
     }
     .floating-btn:hover {
       background-color: #00b396;
       transform: scale(1.05);
     }
+
+    /* --- Heart Animation --- */
+    #hearts-container {
+        position: fixed; /* Fixed position to stay on screen */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Allow clicks to go through */
+        overflow: hidden; /* Hide hearts going off edges */
+        z-index: 0; /* Behind page content */
+    }
+    .heart {
+        position: absolute;
+        top: 110vh; /* Start below the viewport */
+        left: var(--start-left); /* Use CSS variable for random horizontal start */
+        font-size: 1.5rem; /* Adjust size */
+        color: #ff4d6d; /* Heart color */
+        /* Apply flyUp animation by default */
+        animation: flyUp 10s linear infinite var(--delay);
+        opacity: 0;
+        /* z-index: 0; Moved z-index to container */
+        will-change: transform, opacity; /* Optimize animation */
+    }
+
+    /* Add heartbeat animation class */
+    .heart.beat {
+        /* Apply heartbeat animation IN ADDITION to flyUp */
+        animation: flyUp 10s linear infinite var(--delay),
+                   heartbeat 1.5s ease-in-out infinite alternate calc(var(--delay) + 2s); /* Start beat after a delay */
+    }
+
+
+    @keyframes flyUp {
+        0% {
+            transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+            opacity: 0.8;
+        }
+        50% {
+            /* Adjusted horizontal drift */
+            transform: translateY(-70vh) translateX(var(--drift)) rotate(360deg) scale(1);
+            opacity: 0.6;
+        }
+        100% {
+            /* Adjusted horizontal drift and final position */
+            transform: translateY(-110vh) translateX(calc(var(--drift) * 1.5)) rotate(720deg) scale(1);
+            opacity: 0;
+        }
+    }
+
+    @keyframes heartbeat {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.6); /* Grow bigger */
+        }
+        100% {
+            transform: scale(1); /* Shrink back */
+        }
+    }
+    /* --- End Heart Animation --- */
+
 
     /* Responsive Design */
     @media (max-width: 768px) { /* Adjust breakpoint if needed */
@@ -247,6 +307,15 @@
         .app-card-list-item {
             max-width: 90%; /* Allow cards to take more width */
             flex-basis: auto; /* Reset flex basis */
+        }
+        .heart {
+            font-size: 1.2rem; /* Smaller hearts on mobile */
+        }
+        /* Make heartbeat scale smaller on mobile */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1); }
         }
     }
     @media (max-width: 480px) {
@@ -269,28 +338,34 @@
       .app-desc li {
         padding-left: 30px; /* Adjust padding for smaller screens */
       }
-      .nav-links a {
-          margin: 0 10px; /* Closer links on mobile */
-      }
+      /* Removed .nav-links media query */
       .app-card-list-item h3 {
         font-size: 1.3em;
       }
+      .heart {
+          font-size: 1rem; /* Even smaller hearts */
+      }
+       /* Make heartbeat scale even smaller */
+      @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
     }
   </style>
 </head>
 <body>
 
+  <!-- Heart Animation Container (Moved outside sections) -->
+  <div id="hearts-container"></div>
+
   <!-- Hero Section -->
   <section class="page-section hero" id="home">
     <h1>WeDevelopInPK</h1>
     <p>We build smart, secure, and simple Android applications that make your digital life better.</p>
-    <!-- Navigation Links -->
-    <div class="nav-links">
-        <a href="#dicom-viewer">DICOM Viewer</a>
-        <a href="#datavault">DataVault</a>
-        <a href="#contact">Contact</a>
-    </div>
+    <!-- Navigation Links Removed -->
     <a class="btn" href="#app-list">Explore Our Apps</a>
+    <!-- Heart animation DIV removed from here -->
   </section>
 
   <!-- App List Section -->
@@ -430,6 +505,46 @@
   </footer>
 
   <a class="floating-btn" href="#contact">📨 Contact</a>
+
+  <script>
+    // JavaScript for Heart Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('hearts-container');
+      const heartCount = 20; // Increase count slightly for better coverage
+      const beatChance = 0.2; // 20% chance for a heart to beat
+
+      for (let i = 0; i < heartCount; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤️'; // Heart emoji
+
+        // Randomize starting position, delay, duration, and horizontal drift
+        const startLeft = Math.random() * 98 + '%'; // Start anywhere across the width (slight inset)
+        const delay = Math.random() * 12 + 's'; // Start at different times over 12s
+        const duration = (Math.random() * 5 + 8) + 's'; // Duration between 8s and 13s
+        const drift = (Math.random() - 0.5) * 50 + 'vw'; // Drift left or right up to 25vw
+
+        heart.style.setProperty('--start-left', startLeft);
+        heart.style.setProperty('--delay', `-${delay}`); // Negative delay starts animation partway through
+        heart.style.setProperty('--duration', duration); // Set random duration
+        heart.style.setProperty('--drift', drift);
+
+        // Apply flyUp animation directly in CSS now
+        // heart.style.animationName = 'flyUp';
+        heart.style.animationDuration = duration; // Apply random duration
+
+        // Randomly add the heartbeat animation
+        if (Math.random() < beatChance) {
+          heart.classList.add('beat');
+          // Adjust animation property to include both
+          heart.style.animation = `flyUp ${duration} linear infinite var(--delay), heartbeat 1.5s ease-in-out infinite alternate calc(var(--delay) + ${Math.random() * 3 + 1}s)`; // Start beat after random delay
+        }
+
+
+        container.appendChild(heart);
+      }
+    });
+  </script>
 
 </body>
 </html>
