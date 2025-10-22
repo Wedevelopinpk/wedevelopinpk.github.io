@@ -9,22 +9,30 @@
   <style>
     html {
       scroll-behavior: smooth;
+      /* Optional: Enable scroll snapping */
+      /* scroll-snap-type: y mandatory; */
     }
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
-    .hero {
+    .page-section { /* Renamed .hero and .section to this for consistency */
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      min-height: 100vh; /* Full viewport height */
       text-align: center;
-      padding: 20px;
-      animation: fadeIn 1.5s ease-in;
+      padding: 40px 20px; /* Consistent padding */
+      box-sizing: border-box; /* Include padding in height */
+      /* Optional: Scroll snapping */
+      /* scroll-snap-align: start; */
+    }
+    .hero { /* Keep hero specific styles if needed */
+        animation: fadeIn 1.5s ease-in;
     }
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
@@ -38,12 +46,27 @@
       -webkit-text-fill-color: transparent;
       font-weight: 600;
     }
-    p {
+    .hero p { /* Target hero paragraph specifically */
       font-size: 1.1em;
       max-width: 600px;
       line-height: 1.6;
       color: #ddd;
+      margin: 10px auto;
     }
+    .nav-links { /* Container for app links in hero */
+        margin-top: 20px;
+    }
+    .nav-links a {
+        margin: 0 15px;
+        color: #00ffcc;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+        color: #ffa500;
+    }
+
     .btn {
       margin-top: 30px;
       padding: 12px 28px;
@@ -56,33 +79,71 @@
       text-decoration: none;
       transition: background 0.3s ease, transform 0.2s;
       display: inline-block;
+      cursor: pointer;
     }
     .btn:hover {
       background-color: #00b396;
       transform: scale(1.05);
     }
-    .section {
-      padding: 60px 20px;
-      text-align: center;
+     /* Smaller button variant */
+    .btn-small {
+        padding: 8px 18px;
+        font-size: 0.9em;
+        margin-top: 15px;
     }
     .section-title {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2.2em; /* Slightly larger title for app sections */
+      margin-bottom: 30px; /* More space below title */
       color: #00ffcc;
       font-weight: 600;
     }
-    .app-card {
-      margin-bottom: 40px;
+    .app-card-container { /* Container for app cards in the list section */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1000px; /* Limit width of the container */
+        width: 100%;
     }
-    .app-title {
-      font-size: 1.6em;
-      color: #ffa500;
-      margin-bottom: 10px;
-      font-weight: 600;
+    .app-card-list-item { /* Styling for individual app cards in the list */
+        background-color: rgba(44, 83, 100, 0.7); /* Semi-transparent card background */
+        border-radius: 15px;
+        padding: 25px;
+        max-width: 400px; /* Max width for each card */
+        flex: 1 1 300px; /* Allow cards to grow/shrink but have a base width */
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .app-card-list-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+    .app-card-list-item h3 { /* Title within the list card */
+        color: #ffa500;
+        font-size: 1.5em;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    .app-card-list-item p { /* Description within the list card */
+        color: #ccc;
+        font-size: 0.95em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .app-detail-card { /* Card within the full app section */
+       width: 100%; /* Ensure card takes full width for centering */
+       max-width: 900px; /* Limit max width for readability */
+       margin-bottom: 0;
+        /* Optional: Add background/border if desired */
+       /* background-color: rgba(0,0,0,0.1); */
+       /* border-radius: 10px; */
+       /* padding: 20px; */
     }
     .app-desc {
       font-size: 1em;
-      max-width: 800px;
       margin: 0 auto;
       color: #ccc;
       text-align: left;
@@ -119,10 +180,19 @@
     .contact {
       background-color: #111;
       padding: 40px 20px;
+       /* Optional: Scroll snapping */
+      /* scroll-snap-align: start; */
+      min-height: auto; /* Contact section doesn't need full height */
+      text-align: center; /* Center contact content */
     }
     .contact p {
       color: #aaa;
       font-size: 1em;
+      max-width: 600px; /* Consistent width */
+      margin: 10px auto; /* Center paragraph */
+    }
+    .contact .section-title { /* Adjust contact title margin */
+        margin-bottom: 20px;
     }
     .contact a {
       text-decoration: none;
@@ -169,6 +239,16 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 768px) { /* Adjust breakpoint if needed */
+        .app-card-container {
+            flex-direction: column; /* Stack cards vertically */
+            align-items: center; /* Center stacked cards */
+        }
+        .app-card-list-item {
+            max-width: 90%; /* Allow cards to take more width */
+            flex-basis: auto; /* Reset flex basis */
+        }
+    }
     @media (max-width: 480px) {
       h1 {
         font-size: 2em;
@@ -178,10 +258,7 @@
         padding: 10px 20px;
       }
       .section-title {
-        font-size: 1.6em;
-      }
-      .app-title {
-        font-size: 1.3em;
+        font-size: 1.8em; /* Adjusted section title size */
       }
       .app-desc, .contact p {
         font-size: 0.95em;
@@ -192,22 +269,55 @@
       .app-desc li {
         padding-left: 30px; /* Adjust padding for smaller screens */
       }
+      .nav-links a {
+          margin: 0 10px; /* Closer links on mobile */
+      }
+      .app-card-list-item h3 {
+        font-size: 1.3em;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
+  <!-- Hero Section -->
+  <section class="page-section hero" id="home">
     <h1>WeDevelopInPK</h1>
     <p>We build smart, secure, and simple Android applications that make your digital life better.</p>
-    <a class="btn" href="#apps">Explore Our Apps</a>
-  </div>
+    <!-- Navigation Links -->
+    <div class="nav-links">
+        <a href="#dicom-viewer">DICOM Viewer</a>
+        <a href="#datavault">DataVault</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="#app-list">Explore Our Apps</a>
+  </section>
 
-  <div class="section" id="apps">
-    <div class="section-title">📱 Our Apps</div>
+  <!-- App List Section -->
+  <section class="page-section" id="app-list">
+    <div class="section-title">📱 Our Applications</div>
+    <div class="app-card-container">
+        <!-- DICOM Viewer Card -->
+        <div class="app-card-list-item">
+            <h3>⚕️ Medical DICOM Viewer</h3>
+            <p>A fast, intuitive, and powerful platform for medical professionals, researchers, and students to view and analyze DICOM (.dcm) files on Android.</p>
+            <a class="btn btn-small" href="#dicom-viewer">Learn More</a>
+            <a class="btn btn-small" href="https://play.google.com/store/apps/details?id=com.wedevelopinpk.besticomviewer" target="_blank">View on Play Store</a>
+        </div>
+        <!-- DataVault Card -->
+        <div class="app-card-list-item">
+            <h3>🔐 DataVault: Secure Vault</h3>
+            <p>Your private space to hide and protect personal photos, videos, and documents with industry-standard authenticated encryption.</p>
+            <a class="btn btn-small" href="#datavault">Learn More</a>
+            <a class="btn btn-small" href="https://play.google.com/store/apps/details?id=com.wedevelopinpk.datavault" target="_blank">View on Play Store</a>
+        </div>
+    </div>
+  </section>
 
-    <div class="app-card">
-        <div class="app-title">⚕️ Medical DICOM Viewer: Your Powerful Medical Imaging Tool</div>
+  <!-- DICOM Viewer Detail Section -->
+  <section class="page-section" id="dicom-viewer">
+    <div class="app-detail-card">
+        <div class="section-title">⚕️ Medical DICOM Viewer</div>
         <div class="app-desc">
             Whether you are a medical professional, researcher, or student, <strong>Medical DICOM Viewer</strong> provides a fast, intuitive, and powerful platform to view and analyze DICOM (.dcm) files on your Android device.
             <br><br>
@@ -247,10 +357,12 @@
             </a>
         </div>
     </div>
+  </section>
 
-    <!-- Updated DataVault Section -->
-    <div class="app-card">
-      <div class="app-title">🔐 DataVault: Securely Hide Your Photos & Videos</div>
+  <!-- DataVault Detail Section -->
+  <section class="page-section" id="datavault">
+    <div class="app-detail-card">
+      <div class="section-title">🔐 DataVault: Securely Hide Your Photos & Videos</div>
       <div class="app-desc">
         Need a private space on your phone for personal photos, videos, or documents? <strong>DataVault</strong> provides a secure and easy-to-use vault to protect your sensitive media from prying eyes.
         <br><br>
@@ -300,15 +412,14 @@
         </a>
       </div>
     </div>
-    <!-- End of Updated DataVault Section -->
+  </section>
 
-  </div>
-
-  <div class="section contact" id="contact">
+  <!-- Contact Section -->
+  <section class="page-section contact" id="contact">
     <div class="section-title">📧 Contact Us</div>
     <p>If you have feedback, suggestions, or questions, feel free to reach out:</p>
     <p><strong>Email:</strong> <a href="mailto:wedevelopinpk@gmail.com">wedevelopinpk@gmail.com</a></p>
-  </div>
+  </section>
 
   <footer>
     © 2025 WeDevelopInPK · All rights reserved
@@ -322,3 +433,4 @@
 
 </body>
 </html>
+
