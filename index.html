@@ -89,6 +89,33 @@
       padding: 10px;
       line-height: 1.7;
     }
+    /* Style for feature lists */
+    .app-desc ul {
+        list-style: none; /* Remove default bullets */
+        padding-left: 0;
+    }
+    .app-desc li {
+        margin-bottom: 8px; /* Space between list items */
+        position: relative;
+        padding-left: 25px; /* Space for custom icon */
+    }
+    /* Custom bullet/icon */
+    .app-desc li::before {
+        content: '✓'; /* Checkmark icon */
+        color: #00c9a7; /* Icon color */
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .feature-section-title {
+        font-weight: 600;
+        color: #00ffcc; /* Match section title color */
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+        text-align: center; /* Center subsection titles */
+    }
     .contact {
       background-color: #111;
       padding: 40px 20px;
@@ -111,14 +138,14 @@
       text-align: center;
       font-size: 0.9em;
     }
-    footer a {
-        color: #00c9a7;
-        text-decoration: none;
-        margin: 0 10px;
-    }
-    footer a:hover {
-        color: #00ffaa;
-    }
+     footer a {
+         color: #00c9a7;
+         text-decoration: none;
+         margin: 0 10px;
+     }
+     footer a:hover {
+         color: #00ffaa;
+     }
 
     /* Floating Button */
     .floating-btn {
@@ -159,6 +186,12 @@
       .app-desc, .contact p {
         font-size: 0.95em;
       }
+      .app-desc li::before {
+        left: 5px; /* Adjust icon position for smaller screens */
+      }
+      .app-desc li {
+        padding-left: 30px; /* Adjust padding for smaller screens */
+      }
     }
   </style>
 </head>
@@ -178,22 +211,34 @@
         <div class="app-desc">
             Whether you are a medical professional, researcher, or student, <strong>Medical DICOM Viewer</strong> provides a fast, intuitive, and powerful platform to view and analyze DICOM (.dcm) files on your Android device.
             <br><br>
-            <strong>📂 FLEXIBLE FILE & FOLDER ACCESS 📂</strong><br>
-            - <strong>Single File Viewing</strong>: Quickly open individual DICOM files from your device.<br>
-            - <strong>Full Folder Support</strong>: Open an entire folder of DICOM studies and seamlessly navigate through them.<br>
-            - <strong>ZIP Archive Reading</strong>: Directly open and view DICOM files stored within .zip archives.<br>
-            - <strong>Google Drive™ Integration</strong>: Securely sign in to browse your own Google Drive, open shared folders with a link, and download files for offline viewing.
+            <div class="feature-section-title">📂 FLEXIBLE FILE & FOLDER ACCESS 📂</div>
+            <ul>
+              <li><strong>Single File Viewing</strong>: Quickly open individual DICOM files from your device.</li>
+              <li><strong>Full Folder Support (Pro)</strong>: Open an entire folder of DICOM studies and seamlessly navigate through them.</li>
+              <li><strong>ZIP Archive Reading (Pro)</strong>: Directly open and view DICOM files stored within .zip archives.</li>
+              <li><strong>Google Drive™ Integration (Pro)</strong>: Securely sign in to browse your own Google Drive, open shared folders with a link, and download files for offline viewing.</li>
+              <li><strong>PACS Server Access (Pro)</strong>: Connect to and browse DICOM files directly from PACS servers.</li>
+              <li><strong>DICOM Library (Pro)</strong>: Organize and manage your frequently used DICOM files in a local, persistent library.</li>
+            </ul>
 
-            <br><br><strong>🔬 ADVANCED IMAGE ANALYSIS TOOLS 🔬</strong><br>
-            - <strong>Multi-Frame Playback</strong>: Animate and play through multi-frame sequences with intuitive playback controls.<br>
-            - <strong>Pan & Zoom</strong>: Effortlessly pan and zoom to examine fine details with smooth gesture controls.<br>
-            - <strong>Windowing Control</strong>: Adjust window center and width (WC/WW) to optimize image contrast and brightness.<br>
-            - <strong>Invert & Edge Enhancement</strong>: Instantly invert colors or apply an edge enhancement filter for better analysis.<br>
+            <div class="feature-section-title">🔬 ADVANCED IMAGE ANALYSIS TOOLS 🔬</div>
+            <ul>
+              <li><strong>Multi-Frame Playback</strong>: Animate and play through multi-frame sequences with intuitive playback controls.</li>
+              <li><strong>Pan & Zoom</strong>: Effortlessly pan and zoom to examine fine details with smooth gesture controls.</li>
+              <li><strong>Windowing Control</strong>: Adjust window center and width (WC/WW) to optimize image contrast and brightness, with common presets available.</li>
+              <li><strong>Measurement Tool</strong>: Measure distances directly on the image in pixels or millimeters (if PixelSpacing tag is present).</li>
+              <li><strong>Invert Colors</strong>: Instantly invert grayscale colors for alternative viewing.</li>
+              <li><strong>Image Filters</strong>: Apply filters like Structure Enhancement, Edge Detection, or Stent Max for analysis.</li>
+              <li><strong>Color Maps</strong>: Apply pseudo-color maps to grayscale images.</li>
+              <li><strong>DICOM Tags Viewer</strong>: Inspect all embedded DICOM metadata.</li>
+            </ul>
 
-            <br><strong>✨ BUILT FOR A SEAMLESS EXPERIENCE ✨</strong><br>
-            - <strong>Modern & Clean UI</strong>: A user-friendly interface that gets out of your way.<br>
-            - <strong>Persistent Locations</strong>: The app remembers your last-opened local and Google Drive folders for quick access.<br>
-            - <strong>Unlock Pro Features</strong>: A simple, one-time purchase unlocks all advanced features for life.<br><br>
+            <div class="feature-section-title">✨ BUILT FOR A SEAMLESS EXPERIENCE ✨</div>
+            <ul>
+              <li><strong>Modern & Clean UI</strong>: A user-friendly interface that gets out of your way.</li>
+              <li><strong>Persistent Locations</strong>: The app remembers your last-opened local and Google Drive folders for quick access.</li>
+              <li><strong>Freemium Model</strong>: Core viewing is free with ads. A simple, one-time purchase unlocks all Pro features (Folder/ZIP/Drive/PACS/Library access) and removes ads.</li>
+            </ul><br>
 
             <strong>Empower your medical imaging workflow. Download Medical DICOM Viewer today!</strong>
             <br><br>
@@ -203,42 +248,60 @@
         </div>
     </div>
 
+    <!-- Updated DataVault Section -->
     <div class="app-card">
-      <div class="app-title">🔐 DataVault: Your Ultimate Military-Grade Secure Vault</div>
+      <div class="app-title">🔐 DataVault: Securely Hide Your Photos & Videos</div>
       <div class="app-desc">
-        Tired of worrying about who might see your personal photos, private videos, and confidential documents?  
+        Need a private space on your phone for personal photos, videos, or documents? <strong>DataVault</strong> provides a secure and easy-to-use vault to protect your sensitive media from prying eyes.
         <br><br>
-        <strong>DataVault</strong> isn't just another file hider — it’s a high-security digital safe built to protect your data with <strong>impenetrable, military-grade security protocols</strong>.
-        
-        <br><br><strong>🛡️ IRONCLAD SECURITY & ENCRYPTION PROTOCOLS 🛡️</strong><br>
-        🔐 <strong>Military-Grade AES-256 Encryption</strong>: Every file you add is locked down with AES-256 encryption — trusted by governments worldwide.<br>
-        🧠 <strong>PBKDF2 Key Derivation</strong>: Your encryption key is securely derived from your password using PBKDF2 with unique salt per file.<br>
-        🔑 <strong>Android Keystore Protection</strong>: Your master password is separately encrypted using hardware-backed storage.<br>
-        🕵️‍♂️ <strong>Stealth Folder Technology</strong>: Vault folders are disguised with random names — invisible to curious eyes.<br>
-        📴 <strong>100% Offline</strong>: Your files are stored only on your device. You hold the only key.<br>
-        🔓 <strong>Biometric Login</strong>: Use fingerprint or face unlock for quick, secure access.
+        <div class="feature-section-title">🛡️ STRONG SECURITY & ENCRYPTION 🛡️</div>
+        <ul>
+          <li><strong>Authenticated Encryption</strong>: Your files are protected using industry-standard authenticated encryption, verifying data integrity.</li>
+          <li><strong>AES-256 Standard</strong>: We utilize the robust AES-256 standard for encryption. A hybrid approach ensures efficiency:
+            <ul>
+              <li>Files 5MB and smaller use AES-256-GCM.</li>
+              <li>Files larger than 5MB use Tink Streaming AEAD (AES256-GCM-HKDF-4KB) for optimized performance.</li>
+            </ul>
+          </li>
+          <li><strong>Secure Key Derivation</strong>: Your unique 256-bit encryption key is derived from your password using PBKDF2 with 65,536 iterations and a unique salt per file, resisting brute-force attacks.</li>
+          <li><strong>Password/PIN Protection</strong>: Secure your vault with a primary PIN or password.</li>
+          <li><strong>Offline Storage</strong>: Your encrypted files remain securely on your device unless you choose to use cloud sync.</li>
+        </ul>
 
-        <br><br><strong>🗂️ POWERFUL & INTUITIVE FILE MANAGEMENT 🗂️</strong><br>
-        🖼️ Lock photos, videos, audio, PDFs, text, and more.<br>
-        ▶️ Secure in-app viewing without exporting.<br>
-        📦 Batch import/export support for fast encryption.<br>
-        📂 Create, delete, and move files/folders within your vault.<br>
-        🔄 Sort files by name, date, size, or type.<br>
+        <div class="feature-section-title">🗂️ FILE MANAGEMENT FEATURES 🗂️</div>
+        <ul>
+          <li><strong>Hide Various File Types</strong>: Securely import photos, videos, audio, PDFs, and other file types.</li>
+          <li><strong>In-App Viewing</strong>: View photos and play videos directly within the secure vault without exporting.</li>
+          <li><strong>Batch Import/Export</strong>: Easily move multiple files in or out of the vault.</li>
+          <li><strong>Organize Your Vault</strong>: Create, rename, and delete folders within the vault.</li>
+          <li><strong>Sort Options</strong>: Sort files by name, date added, size, or type.</li>
+        </ul>
 
-        <br><strong>✨ A SEAMLESS & USER-FRIENDLY EXPERIENCE ✨</strong><br>
-        🎨 Clean, modern interface with intuitive controls.<br>
-        ⏳ Animated encryption/decryption progress.<br>
-        🗑️ Auto-delete original files after encryption.<br>
-        🔁 Reinstall protection with easy recovery.<br>
-        🔐 Use any password (e.g., "12345") — stronger is better!<br><br>
+         <div class="feature-section-title">⭐ PRO FEATURES (Unlock via One-Time Purchase) ⭐</div>
+         <ul>
+           <li><strong>Ad-Free Experience</strong>: Enjoy DataVault without any advertisements.</li>
+           <li><strong>Biometric Login</strong>: Use your device's fingerprint sensor for quick and secure access.</li>
+           <li><strong>Cloud Sync</strong>: Optionally back up your encrypted vault to Google Drive, Dropbox, or WebDAV servers. Features a <strong>double-encryption</strong> model for enhanced cloud security (files are encrypted locally, then encrypted again before upload).</li>
+           <li><strong>Multi-Password Support</strong>: Create multiple passwords for different vault access levels or contexts.</li>
+           <li><strong>Gesture Controls</strong>: Enable convenient gestures, like shaking your device to lock the vault immediately.</li>
+         </ul>
 
-        <strong>Stop leaving your privacy to chance. Download DataVault today and build your own impenetrable digital fortress!</strong>
+        <div class="feature-section-title">✨ USER-FRIENDLY EXPERIENCE ✨</div>
+        <ul>
+          <li><strong>Clean Interface</strong>: Simple and intuitive design.</li>
+          <li><strong>Progress Indicators</strong>: See visual progress during encryption/decryption.</li>
+          <li><strong>Optional Original File Deletion</strong>: Choose to automatically delete original files from public storage after successful import.</li>
+        </ul><br>
+
+        <strong>Take control of your privacy. Download DataVault today to secure your personal media!</strong>
         <br><br>
         <a class="btn" href="https://play.google.com/store/apps/details?id=com.wedevelopinpk.datavault" target="_blank">
           View on Google Play
         </a>
       </div>
     </div>
+    <!-- End of Updated DataVault Section -->
+
   </div>
 
   <div class="section contact" id="contact">
@@ -250,8 +313,9 @@
   <footer>
     © 2025 WeDevelopInPK · All rights reserved
     <br>
+    <!-- Make sure these files exist -->
     <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="#terms">Terms of Service</a>
+    <a href="terms-of-service.html">Terms of Service</a>
   </footer>
 
   <a class="floating-btn" href="#contact">📨 Contact</a>
