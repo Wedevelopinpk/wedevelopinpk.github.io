@@ -81,7 +81,7 @@
       These files are processed locally, never transmitted externally, and deleted automatically from cache when closed.</p>
 
       <p><strong>☁️ Google Drive Integration:</strong>
-        <br>- <strong>Authentication:</strong> Securely handled via Google Sign-In. Only limited basic info (like your email) is shown in-app and not stored.
+        <br>- <strong>Authentication:</strong> Securely handled via Google Sign-In (OAuth 2.0). Only limited basic info (like your email) is shown in-app and not stored.
         <br>- <strong>Permissions:</strong> The app requests <code>DriveScopes.DRIVE_READONLY</code> — meaning it can view and download, but never modify or delete your files.
         <br>- <strong>Temporary Files:</strong> Any downloaded files are cached in a secure private folder and auto-deleted after use.
       </p>
@@ -101,7 +101,7 @@
 
       <h3>🧱 DataVault: Photo &amp; Video Vault</h3>
       <p><strong>DataVault</strong> provides a secure space to protect your private photos, videos, and files. 
-      It operates fully offline unless you choose to use optional cloud features.</p>
+      It operates fully offline unless you choose to use optional encrypted cloud backup features.</p>
 
       <p><strong>🛡️ No Personal Tracking:</strong> DataVault does not collect analytics or personally identifying data. 
       However, the free version displays ads via <strong>Google AdMob</strong>, which may collect non-personal identifiers for ad delivery and performance monitoring.</p>
@@ -112,8 +112,11 @@
       Encryption and decryption occur entirely on your device.</p>
 
       <p><strong>☁️ Optional Cloud Backup:</strong> 
-      If you enable cloud sync (Google Drive, Dropbox, or WebDAV), files are encrypted before upload. 
-      We cannot access, decrypt, or read them — only you can, using your password.</p>
+      DataVault supports <strong>Google Drive</strong>, <strong>Dropbox</strong>, and <strong>WebDAV</strong> as optional encrypted backup destinations.
+      <br>- All uploads are <u>encrypted before leaving your device</u>.
+      <br>- Your credentials are handled securely through each provider’s OAuth 2.0 or native API login flow.
+      <br>- We never store or access your login information or files.
+      <br>- Files uploaded to the cloud remain unreadable to us and to the cloud providers because only you possess the decryption key.</p>
 
       <p><strong>🔑 Password &amp; Biometric Security:</strong> 
       Your master password is used to derive encryption keys with PBKDF2 (65,536 iterations). 
@@ -152,7 +155,9 @@
       <strong>Email:</strong> <a href="mailto:wedevelopinpk@gmail.com">wedevelopinpk@gmail.com</a></p>
 
       <h3>🔗 Related Policies</h3>
-      <p>Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+      <p>Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a><br>
+      Dropbox Privacy Policy: <a href="https://www.dropbox.com/privacy" target="_blank">https://www.dropbox.com/privacy</a><br>
+      WebDAV providers follow their own respective privacy terms.</p>
     </div>
   </div>
 
